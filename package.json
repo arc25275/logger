@@ -1,0 +1,8 @@
+{
+  "name": "loggerbot",
+  "version": "1.0.0",
+  "description": "A bot to log all things on a discord server",
+  "main": "main.js",
+  "author": "arc25275",
+  "license": "ISC"
+}
