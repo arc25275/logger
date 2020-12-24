@@ -2,15 +2,15 @@ const config = require("../config/config.json");
 
 module.exports = {
   once: false,
-  run(message) {
-    if (message.author.id === message.client.user.id) return;
+  run(client, message) {
+    if (message.author.id === client.user.id) return;
     console.log(
       `Message deleted in #${message.channel.name} has been logged. ${message.cleanContent.length} Chars long. `
     );
 
     const embed = {
       title: "Message Deleted",
-      description: `\`\`\`${message.cleanContent}\`\`\``,
+      description: `${message.cleanContent}`,
       color: 13632027,
       timestamp: `${new Date().toLocaleString()}`,
       footer: {
@@ -24,17 +24,16 @@ module.exports = {
       fields: [
         {
           name: "Message deleted in",
-          value: `<#${message.channel.id}>`,
+          value: `<#${message.channel.id}> (${message.channel.id})`,
           inline: true,
         },
         {
           name: "Message sent by",
-          value: `<@${message.author.id}>`,
+          value: `<@${message.author.id}> (${message.author.id})`,
           inline: true,
         },
       ],
     };
-    console.log(embed.description.length);
-    message.client.channels.cache.get(config.logChannel).send({ embed });
+    client.channels.cache.get(config.logChannel).send({ embed });
   },
 };
