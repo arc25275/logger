@@ -32,7 +32,3 @@ fs.readdir("./events/", (err, files) => {
     }
   });
 });
-
-client.on("ready", () => {
-  console.info(`Logged in as ${client.user.tag}!`);
-});
