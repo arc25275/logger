@@ -13,6 +13,5 @@ module.exports = async function getLog(logType, message) {
 		}
 	}
 	const executor = log;
-	console.log(executor.executor.id);
 	return executor.executor.id;
 };
