@@ -5,7 +5,7 @@ module.exports = {
 	once: false,
 	async run(client, message) {
 		if (message.author.id === client.user.id) return;
-		const executor = await getLog("MESSAGE_DELETE", channel);
+		const executor = await getLog("MESSAGE_DELETE", message);
 		const embed = {
 			title: "Message Deleted",
 			description: `${message.cleanContent}`,
