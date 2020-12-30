@@ -38,6 +38,8 @@ module.exports = {
 				},
 			],
 		};
-		client.channels.cache.get(config.logChannel).send({ embed });
+		client.channels.cache
+			.get(config[oldMessage.guild.id].logChannel)
+			.send({ embed });
 	},
 };

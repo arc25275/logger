@@ -4,5 +4,9 @@
   "description": "A bot to log all things on a discord server",
   "main": "main.js",
   "author": "arc25275",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "nodejs": "0.0.0"
+  }
 }

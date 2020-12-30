@@ -32,6 +32,8 @@ module.exports = {
 				},
 			],
 		};
-		client.channels.cache.get(config.logChannel).send({ embed });
+		client.channels.cache
+			.get(config[message.guild.id].logChannel)
+			.send({ embed });
 	},
 };
