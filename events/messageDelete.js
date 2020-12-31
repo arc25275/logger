@@ -5,7 +5,6 @@ module.exports = {
 	once: false,
 	async run(client, message) {
 		if (message.author.id === client.user.id) return;
-		const executor = await getLog("MESSAGE_DELETE", message);
 		const embed = {
 			title: "Message Deleted",
 			description: `${message.cleanContent}`,
@@ -26,14 +25,16 @@ module.exports = {
 					inline: true,
 				},
 				{
-					name: "Message deleted by",
-					value: `<@${executor}> (${executor})`,
+					name: "Message sent by",
+					value: `<@${message.author.id}> (${message.author.id})`,
 					inline: true,
 				},
 			],
 		};
-		client.channels.cache
-			.get(config[message.guild.id].logChannel)
-			.send({ embed });
+		if (config[message.guild.id]) {
+			client.channels.cache
+				.get(config[message.guild.id].logChannel)
+				.send({ embed });
+		}
 	},
 };

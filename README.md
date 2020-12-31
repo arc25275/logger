@@ -17,7 +17,7 @@ This is my first bot, and I know this isn't an original idea, but I still want p
 
 Shows when any channels are created, voice or text.
 
-![createChannel ](https://media.discordapp.net/attachments/791056192075202600/792264616297234442/unknown.png)
+![createChannel](https://media.discordapp.net/attachments/791056192075202600/792264616297234442/unknown.png)
 
 ### deleteChannel
 

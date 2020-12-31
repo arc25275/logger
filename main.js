@@ -15,11 +15,8 @@ fs.readdir("./events/", (err, files) => {
 		const eventFunction = require(`./events/${file}`);
 		if (eventFunction.disabled) return;
 
-		const event = eventFunction.event || file.split(".")[0];
-		const emitter =
-			(typeof eventFunction.emitter === "string"
-				? client[eventFunction.emitter]
-				: eventFunction.emitter) || client;
+		const event = file.split(".")[0];
+		const emitter = client;
 		const once = eventFunction.once;
 
 		try {

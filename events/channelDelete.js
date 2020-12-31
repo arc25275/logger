@@ -18,8 +18,10 @@ module.exports = {
 					"https://media.discordapp.net/attachments/737388909197262948/791077743869296690/trashcan2.png",
 			},
 		};
-		client.channels.cache
-			.get(config[channel.guild.id].logChannel)
-			.send({ embed });
+		if (config[message.guild.id]) {
+			client.channels.cache
+				.get(config[channel.guild.id].logChannel)
+				.send({ embed });
+		}
 	},
 };
