@@ -18,22 +18,18 @@ module.exports = {
 			description: `**Old Message:** \n\n ${oldMessage.content} \n\n **New Message:** \n\n ${newMessage.content}`,
 			color: 15514391,
 			timestamp: `${new Date().toLocaleString()}`,
-			footer: {
-				text: `${oldMessage.author.tag}`,
-				icon_url: `${oldMessage.author.avatarURL()}`,
-			},
 			thumbnail: {
 				url: config.createSprite,
 			},
 			fields: [
 				{
 					name: "Message edited in",
-					value: `<#${oldMessage.channel.id}> (${oldMessage.channel.id})`,
+					value: `<#${oldMessage.channel.id}> \n (${oldMessage.channel.id})`,
 					inline: true,
 				},
 				{
 					name: "Message sent by",
-					value: `<@${oldMessage.author.id}> (${oldMessage.author.id})`,
+					value: `<@${oldMessage.author.id}> \n (${oldMessage.author.id})`,
 					inline: true,
 				},
 			],
