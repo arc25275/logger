@@ -1,3 +1,4 @@
+const sendEmbed = require("../utils/sendEmbed.js");
 const config = require("../config/config.json");
 const getLog = require("../utils/getAuditLog.js");
 module.exports = {
@@ -14,14 +15,9 @@ module.exports = {
 			color: 13632027,
 			timestamp: `${new Date().toLocaleString()}`,
 			thumbnail: {
-				url:
-					"https://media.discordapp.net/attachments/737388909197262948/791077743869296690/trashcan2.png",
+				url: config.deleteSprite,
 			},
 		};
-		if (config[message.guild.id]) {
-			client.channels.cache
-				.get(config[channel.guild.id].logChannel)
-				.send({ embed });
-		}
+		sendEmbed(channel, client, embed);
 	},
 };

@@ -1,4 +1,5 @@
 const config = require("../config/config.json");
+const sendEmbed = require("../utils/sendEmbed.js");
 
 module.exports = {
 	once: false,
@@ -22,8 +23,7 @@ module.exports = {
 				icon_url: `${oldMessage.author.avatarURL()}`,
 			},
 			thumbnail: {
-				url:
-					"https://media.discordapp.net/attachments/737388909197262948/791068495873441792/pencil.png",
+				url: config.createSprite,
 			},
 			fields: [
 				{
@@ -38,10 +38,6 @@ module.exports = {
 				},
 			],
 		};
-		if (config[oldMessage.guild.id]) {
-			client.channels.cache
-				.get(config[oldMessage.guild.id].logChannel)
-				.send({ embed });
-		}
+		sendEmbed(oldMessage, client, embed);
 	},
 };

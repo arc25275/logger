@@ -1,5 +1,5 @@
+const sendEmbed = require("../utils/sendEmbed.js");
 const config = require("../config/config.json");
-const getLog = require("../utils/getAuditLog.js");
 
 module.exports = {
 	once: false,
@@ -15,8 +15,7 @@ module.exports = {
 				icon_url: `${message.author.avatarURL()}`,
 			},
 			thumbnail: {
-				url:
-					"https://media.discordapp.net/attachments/737388909197262948/791077743869296690/trashcan2.png",
+				url: config.deleteSprite,
 			},
 			fields: [
 				{
@@ -31,10 +30,6 @@ module.exports = {
 				},
 			],
 		};
-		if (config[message.guild.id]) {
-			client.channels.cache
-				.get(config[message.guild.id].logChannel)
-				.send({ embed });
-		}
+		sendEmbed(message, client, embed);
 	},
 };

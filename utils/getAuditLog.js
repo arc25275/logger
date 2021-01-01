@@ -1,5 +1,5 @@
 module.exports = async function getLog(logType, object) {
-	const fetchedLogs = await message.guild.fetchAuditLogs({
+	const fetchedLogs = await object.guild.fetchAuditLogs({
 		limit: 1,
 		type: logType,
 	});
@@ -7,4 +7,3 @@ module.exports = async function getLog(logType, object) {
 	const executor = log;
 	return executor.executor.id;
 };
-x;
