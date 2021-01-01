@@ -6,6 +6,17 @@ module.exports = {
 	async execute(message, args) {
 		guildID = message.guild.id;
 		cleanArg = args[0].replace(/\D/g, "");
+		if (
+			message.guild.channels.cache.get(cleanArg) === undefined ||
+			cleanArg.match(/^<#\d{18}>$/) == false
+		) {
+			const embed = {
+				description: `Invalid Channel`,
+				color: 13632027,
+			};
+			message.channel.send({ embed });
+			return;
+		}
 		newData = {
 			logChannel: cleanArg,
 		};
@@ -16,7 +27,7 @@ module.exports = {
 			jsonData[guildID] = newData;
 			fs.writeFile("./config/data.json", JSON.stringify(jsonData), (err) => {
 				if (err) throw err;
-				console.log("The file has been saved!");
+				console.log("The file has been saved! (Log channel set)");
 			});
 		});
 		const embed = {

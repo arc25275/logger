@@ -15,7 +15,7 @@ module.exports = {
 			jsonData[guildID] = newData;
 			fs.writeFile("./config/data.json", JSON.stringify(jsonData), (err) => {
 				if (err) throw err;
-				console.log("The file has been saved!");
+				console.log("The file has been saved! (First time config created)");
 			});
 		});
 	},
