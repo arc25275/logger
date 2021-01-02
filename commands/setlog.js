@@ -24,11 +24,15 @@ module.exports = {
 			if (err) throw err;
 
 			const jsonData = JSON.parse(data.toString());
-			jsonData[guildID] = newData;
-			fs.writeFile("./config/data.json", JSON.stringify(jsonData), (err) => {
-				if (err) throw err;
-				console.log("The file has been saved! (Log channel set)");
-			});
+			jsonData[guildID].logChannel = cleanArg;
+			fs.writeFile(
+				"./config/data.json",
+				JSON.stringify(jsonData, null, "\t"),
+				(err) => {
+					if (err) throw err;
+					console.log("The file has been saved! (Log channel set)");
+				}
+			);
 		});
 		const embed = {
 			description: `Log channel set to ${args[0]}`,
