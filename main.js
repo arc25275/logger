@@ -28,7 +28,8 @@ client.on("message", (message) => {
 	const command = args.shift().toLowerCase();
 
 	if (!client.commands.has(command)) return;
-
+	if (!message.channel.permissionsFor(message.author).has("ADMINISTRATOR"))
+		return;
 	try {
 		client.commands.get(command).execute(message, args);
 	} catch (error) {
