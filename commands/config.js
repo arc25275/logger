@@ -38,7 +38,6 @@ module.exports = {
 			message.channel.send({ embed });
 			return;
 		}
-		console.log(new RegExp(/^true|^false/i).test(args[1]));
 		if (!new RegExp(/^true|^false/i).test(args[1])) {
 			const embed = {
 				description: `Invalid Option (Must be \`true\` or \`false\`)`,
