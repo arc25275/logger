@@ -2,7 +2,7 @@ const fs = require("fs");
 
 module.exports = {
 	name: "setlog",
-	description: "Sets log channel",
+	description: "Sets what channel events get logged to.",
 	async execute(message, args) {
 		guildID = message.guild.id;
 		cleanArg = args[0].replace(/\D/g, "");

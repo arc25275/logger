@@ -2,7 +2,7 @@ const fs = require("fs");
 
 module.exports = {
 	name: "disable",
-	description: "Disables Logging",
+	description: "Disables logging on the server.",
 	async execute(message, args) {
 		guildID = message.guild.id;
 		fs.readFile("./config/data.json", (err, data) => {
