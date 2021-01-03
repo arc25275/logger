@@ -1,4 +1,5 @@
 const fs = require("fs");
+const config = require("../config/config.json");
 
 module.exports = {
 	name: "config",
@@ -9,13 +10,9 @@ module.exports = {
 			"channelDelete",
 			"ChannelPinsUpdate",
 			"channelUpdate",
-			"clientUserGuildSettingsUpdate",
-			"clientUserSettingsUpdate",
-			"debug",
 			"emojiCreate",
 			"emojiDelete",
 			"emojiUpdate",
-			"error",
 			"guildBanAdd",
 			"guildBanRemove",
 			"guildMemberAdd",
@@ -25,11 +22,8 @@ module.exports = {
 			"guildUpdate",
 			"messageDelete",
 			"messageDeleteBulk",
-			"messageReactionAdd",
-			"messageReactionRemove",
 			"messageReactionRemoveAll",
 			"messageUpdate",
-			"presenceUpdate",
 			"roleCreate",
 			"roleDelete",
 			"roleUpdate",
@@ -38,7 +32,7 @@ module.exports = {
 		];
 		if (eventArray.includes(args[0]) == false) {
 			const embed = {
-				description: `Invalid Event`,
+				description: `Invalid Event (All events: \`${config.prefix}events\`)`,
 				color: 13632027,
 			};
 			message.channel.send({ embed });
@@ -47,7 +41,7 @@ module.exports = {
 		console.log(new RegExp(/^true|^false/i).test(args[1]));
 		if (!new RegExp(/^true|^false/i).test(args[1])) {
 			const embed = {
-				description: `Invalid Option`,
+				description: `Invalid Option (Must be \`true\` or \`false\`)`,
 				color: 13632027,
 			};
 			message.channel.send({ embed });
