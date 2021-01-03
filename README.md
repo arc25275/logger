@@ -7,32 +7,37 @@ This is my first bot, and I know this isn't an original idea, but I still want p
 ## Planned Features:
 
 - Adding all events
-- Making what channel it logs to configurable via a command
-- Making what events get logged configurable via a command
 - Hopefully making code less shitty
 
-## Current Features
+## Current Features:
 
-### createChannel
+### Commands:
 
-Shows when any channels are created, voice or text.
+#### $setlog
 
-![createChannel](https://media.discordapp.net/attachments/791056192075202600/792264616297234442/unknown.png)
+Usage: `$setlog <#channel>`
 
-### deleteChannel
+Sets what channel events get logged to.
 
-Shows when any channels are created, voice, or text.
+#### $disable
 
-![deleteChannel](https://media.discordapp.net/attachments/791056192075202600/792265142356148245/unknown.png)
+Usage: `$disable`
 
-### messageDelete
+Disables logging on the server.
 
-Shows any messages that are deleted, and by who (May break on larger servers, will add an option to disable)
+#### $config
 
-![messageDelete](https://media.discordapp.net/attachments/791056192075202600/792265935858827294/unknown.png)
+Usage: `$config <event> ['true' | 'false']`
 
-### messageUpdate
+Enable or disable events.
 
-Shows when any message is updated/edited.
+#### $events
 
-![messageUpdate](https://media.discordapp.net/attachments/791056192075202600/792266915514024026/unknown.png)
+Usage: `$events`
+Lists all events and their current status.
+
+### Events:
+
+#### Most useful events found here: https://gist.github.com/koad/316b265a91d933fd1b62dddfcc3ff584
+
+Most events pull from the audit logs to check who did an action, with the exception of deleted messages.
