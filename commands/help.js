@@ -25,6 +25,10 @@ module.exports = {
 						name: `${config.prefix}events`,
 						value: `Usage: \`${config.prefix}events\`\nLists all events and their current status.`,
 					},
+					{
+						name: `${config.prefix}modrole`,
+						value: `Usage: \`${config.prefix}modrole ['add' | 'remove'] <roleid> \`\nAdds and removes roles that can use commands`,
+					},
 				],
 			};
 			message.channel.send({ embed });
