@@ -1,4 +1,6 @@
 const fs = require("fs");
+const sendError = require("../utils/sendError.js");
+const sendSuccess = require("../utils/sendSuccess.js");
 
 module.exports = {
 	name: "setlog",
@@ -10,11 +12,7 @@ module.exports = {
 			message.guild.channels.cache.get(cleanArg) === undefined ||
 			cleanArg.match(/^<#\d{18}>$/) == false
 		) {
-			const embed = {
-				description: `Invalid Channel`,
-				color: 13632027,
-			};
-			message.channel.send({ embed });
+			sendError(message, "Invalid Channel");
 			return;
 		}
 		newData = {
@@ -34,10 +32,6 @@ module.exports = {
 				}
 			);
 		});
-		const embed = {
-			description: `Log channel set to ${args[0]}`,
-			color: 1497188,
-		};
-		message.channel.send({ embed });
+		sendSuccess(message, `Log channel set to ${args[0]}`);
 	},
 };
