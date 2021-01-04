@@ -26,14 +26,18 @@ client.on("message", (message) => {
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const command = args.shift().toLowerCase();
-
 	if (!client.commands.has(command)) return;
-	if (!message.channel.permissionsFor(message.author).has("ADMINISTRATOR"))
-		return;
-	try {
-		client.commands.get(command).execute(message, args);
-	} catch (error) {
-		console.log(error);
+	if (
+		message.member.roles.cache.some((r) =>
+			JSON.stringify(serverData[message.guild.id].modRoles).includes(r.name)
+		) ||
+		message.member.hasPermission("ADMINISTRATOR")
+	) {
+		try {
+			client.commands.get(command).execute(message, args);
+		} catch (error) {
+			console.log(error);
+		}
 	}
 });
 //Event Handler
