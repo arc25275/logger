@@ -9,13 +9,16 @@ module.exports = {
 		guildID = message.guild.id;
 		var channel;
 		if (!args[0]) {
-			sendError(message, "Invalid Channel provided");
+			sendError(
+				message,
+				"Invalid channel provided (Must be a mention, ID, or name)"
+			);
 			return;
 		}
 		if (args[0].match(/^\d{18}/)) {
 			channel = message.guild.channels.cache.get(args[0]);
 		} else if (args[0].match(/^<@&\d{18}>$/)) {
-			role = message.guild.channels.cache.get(
+			channel = message.guild.channels.cache.get(
 				args[0].replace("<@&", "").replace(">", "")
 			);
 		} else {
@@ -24,7 +27,10 @@ module.exports = {
 			);
 		}
 		if (!channel) {
-			sendError(message, "Invalid Channel provided");
+			sendError(
+				message,
+				"Invalid channel provided (Must be a mention, ID, or name)"
+			);
 			return;
 		}
 		fs.readFile("./config/data.json", (err, data) => {

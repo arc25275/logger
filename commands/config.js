@@ -35,12 +35,12 @@ module.exports = {
 		if (eventArray.includes(args[0]) == false) {
 			sendError(
 				message,
-				`Invalid Event (All events: \`${config.prefix}events\`)`
+				`Invalid event (All events: \`${config.prefix}events\`)`
 			);
 			return;
 		}
 		if (!new RegExp(/^true|^false/i).test(args[1])) {
-			sendError(message, `Invalid Option (Must be \`true\` or \`false\`)`);
+			sendError(message, `Invalid option (Must be \`true\` or \`false\`)`);
 			return;
 		}
 		const option = JSON.parse(args[1].toLowerCase());
@@ -59,10 +59,10 @@ module.exports = {
 			);
 		});
 		if (option === true) {
-			sendSuccess(message, `Logging enabled for ${args[0]}`);
+			sendSuccess(message, `Logging enabled for \`${args[0]}\``);
 		}
 		if (option === false) {
-			sendError(message, `Logging disabled for ${args[0]}`);
+			sendError(message, `Logging disabled for \`${args[0]}\``);
 		}
 	},
 };
