@@ -7,22 +7,31 @@ module.exports = {
 	description: "Sets what channel events get logged to.",
 	async execute(message, args) {
 		guildID = message.guild.id;
-		cleanArg = args[0].replace(/\D/g, "");
-		if (
-			message.guild.channels.cache.get(cleanArg) === undefined ||
-			cleanArg.match(/^<#\d{18}>$/) == false
-		) {
-			sendError(message, "Invalid Channel");
+		var channel;
+		if (!args[0]) {
+			sendError(message, "Invalid Channel provided");
 			return;
 		}
-		newData = {
-			logChannel: cleanArg,
-		};
+		if (args[0].match(/^\d{18}/)) {
+			channel = message.guild.channels.cache.get(args[0]);
+		} else if (args[0].match(/^<@&\d{18}>$/)) {
+			role = message.guild.channels.cache.get(
+				args[0].replace("<@&", "").replace(">", "")
+			);
+		} else {
+			channel = message.guild.channels.cache.find(
+				(channel) => channel.name === args[0]
+			);
+		}
+		if (!channel) {
+			sendError(message, "Invalid Channel provided");
+			return;
+		}
 		fs.readFile("./config/data.json", (err, data) => {
 			if (err) throw err;
 
 			const jsonData = JSON.parse(data.toString());
-			jsonData[guildID].logChannel = cleanArg;
+			jsonData[guildID].logChannel = channel.id;
 			fs.writeFile(
 				"./config/data.json",
 				JSON.stringify(jsonData, null, "\t"),
@@ -32,6 +41,6 @@ module.exports = {
 				}
 			);
 		});
-		sendSuccess(message, `Log channel set to ${args[0]}`);
+		sendSuccess(message, `Log channel set to <#${channel.id}>`);
 	},
 };
