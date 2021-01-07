@@ -14,7 +14,7 @@ module.exports = {
 				} channel deleted by <@${executor}> (${executor}) \n Name: \`#${
 					channel.name
 				}\` (${channel.id})`,
-				color: 13632027,
+				color: config.deleteColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
 					url: config.deleteSprite,

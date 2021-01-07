@@ -11,7 +11,7 @@ module.exports = {
 			const embed = {
 				title: "Channel edited",
 				description: `**Old channel settings:** \n\n Name: \`${oldChannel.name}\`\n Topic: \`${oldChannel.topic}\`\n NSFW: \`${oldChannel.nsfw}\`\n Slowmode: \`${oldChannel.rateLimitPerUser}\`\n \n\n **New channel settings:** \n\n Name: \`${newChannel.name}\`\n Topic: \`${newChannel.topic}\`\n NSFW: \`${newChannel.nsfw}\`\n Slowmode: \`${newChannel.rateLimitPerUser}\``,
-				color: 15514391,
+				color: config.editColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
 					url: config.editSprite,

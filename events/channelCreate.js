@@ -17,7 +17,7 @@ module.exports = {
 				}> created by <@${executor}> (${executor}) \n Name: \`#${
 					channel.name
 				}\` (${channel.id})`,
-				color: 1497188,
+				color: config.createColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
 					url: config.createSprite,

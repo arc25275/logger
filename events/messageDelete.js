@@ -10,7 +10,7 @@ module.exports = {
 			const embed = {
 				title: "Message deleted",
 				description: `${message.cleanContent}`,
-				color: 13632027,
+				color: config.deleteColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
 					url: config.deleteSprite,

@@ -18,7 +18,7 @@ module.exports = {
 			const embed = {
 				title: "Message Edited",
 				description: `**Old Message:** \n\n ${oldMessage.content} \n\n **New Message:** \n\n ${newMessage.content}`,
-				color: 15514391,
+				color: config.editColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
 					url: config.editSprite,
