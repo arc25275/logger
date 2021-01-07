@@ -17,9 +17,9 @@ module.exports = {
 		}
 		if (args[0].match(/^\d{18}/)) {
 			channel = message.guild.channels.cache.get(args[0]);
-		} else if (args[0].match(/^<@&\d{18}>$/)) {
+		} else if (args[0].match(/^<#\d{18}>$/)) {
 			channel = message.guild.channels.cache.get(
-				args[0].replace("<@&", "").replace(">", "")
+				args[0].replace("<#", "").replace(">", "")
 			);
 		} else {
 			channel = message.guild.channels.cache.find(
