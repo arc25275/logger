@@ -21,7 +21,7 @@ module.exports = {
 				color: 15514391,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
-					url: config.createSprite,
+					url: config.editSprite,
 				},
 				fields: [
 					{

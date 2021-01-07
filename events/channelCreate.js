@@ -9,7 +9,7 @@ module.exports = {
 		if (serverData[channel.guild.id].events["channelCreate"] == true) {
 			const executor = await getLog("CHANNEL_CREATE", channel);
 			const embed = {
-				title: "Channel Created",
+				title: "Channel created",
 				description: `${
 					channel.type.charAt(0).toUpperCase() + channel.type.slice(1)
 				} channel <#${

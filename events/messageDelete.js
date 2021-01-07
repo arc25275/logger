@@ -8,7 +8,7 @@ module.exports = {
 		if (serverData[message.guild.id].events["messageDelete"] === true) {
 			if (message.author.id === client.user.id) return;
 			const embed = {
-				title: "Message Deleted",
+				title: "Message deleted",
 				description: `${message.cleanContent}`,
 				color: 13632027,
 				timestamp: `${new Date().toLocaleString()}`,

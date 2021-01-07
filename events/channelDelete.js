@@ -8,7 +8,7 @@ module.exports = {
 		if (serverData[channel.guild.id].events["channelDelete"] == true) {
 			const executor = await getLog("CHANNEL_DELETE", channel);
 			const embed = {
-				title: "Channel Deleted",
+				title: "Channel deleted",
 				description: `${
 					channel.type.charAt(0).toUpperCase() + channel.type.slice(1)
 				} channel deleted by <@${executor}> (${executor}) \n Name: \`#${
