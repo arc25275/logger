@@ -48,4 +48,8 @@ Lists all events and their current status.
 
 Most events pull from the audit logs to check who did an action, with the exception of deleted messages.
 
-Thank you to [@vicrobex](https://github.com/vicrobex) for his graphics work!
+## Credits
+
+[@vicrobex](https://github.com/vicrobex) - Sprite graphics
+
+[@cattte](https://github.com/cattte) - Help with code
