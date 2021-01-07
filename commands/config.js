@@ -10,7 +10,6 @@ module.exports = {
 		guildID = message.guild.id;
 		const eventArray = [
 			"channelDelete",
-			"ChannelPinsUpdate",
 			"channelUpdate",
 			"emojiCreate",
 			"emojiDelete",

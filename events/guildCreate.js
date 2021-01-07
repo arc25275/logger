@@ -14,7 +14,6 @@ module.exports = {
 				events: {
 					channelCreate: true,
 					channelDelete: true,
-					channelPinsUpdate: true,
 					channelUpdate: true,
 					emojiCreate: true,
 					emojiDelete: true,
