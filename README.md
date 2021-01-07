@@ -47,3 +47,5 @@ Lists all events and their current status.
 #### Most useful events found here: https://gist.github.com/koad/316b265a91d933fd1b62dddfcc3ff584
 
 Most events pull from the audit logs to check who did an action, with the exception of deleted messages.
+
+Thank you to [@vicrobex](https://github.com/vicrobex) for his graphics work!
