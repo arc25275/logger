@@ -1,4 +1,10 @@
+<div align="center">
+
+<img width="128" src="https://media.discordapp.net/attachments/737388909197262948/796812054253797376/logger.png" />
+
 # Logger
+
+</div>
 
 Logger is a WIP discord bot to log all actions and events that can happen in a discord server!
 
