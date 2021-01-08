@@ -40,7 +40,14 @@ Enable or disable events.
 #### $events
 
 Usage: `$events`
+
 Lists all events and their current status.
+
+#### $modrole
+
+Usage: `modrole ['add' | 'remove'] <roleid>`
+
+Adds and removes roles that can use commands
 
 ### Events:
 
@@ -52,4 +59,4 @@ Most events pull from the audit logs to check who did an action, with the except
 
 [@vicrobex](https://github.com/vicrobex) - Sprite graphics
 
-[@cattte](https://github.com/cattte) - Help with code
+[@cattte](https://github.com/cattte) - Help with code when I'm stupid
