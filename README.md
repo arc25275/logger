@@ -45,7 +45,7 @@ Lists all events and their current status.
 
 #### $modrole
 
-Usage: `modrole ['add' | 'remove'] <roleid>`
+Usage: `$modrole ['add' | 'remove'] <roleid>`
 
 Adds and removes roles that can use commands
 
