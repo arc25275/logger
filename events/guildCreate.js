@@ -25,6 +25,7 @@ module.exports = {
 					guildMemberSpeaking: true,
 					guildMemberUpdate: true,
 					guildUpdate: true,
+					messageDelete: true,
 					messageDeleteBulk: true,
 					messageReactionRemoveAll: true,
 					messageUpdate: true,
@@ -34,6 +35,7 @@ module.exports = {
 					userUpdate: true,
 					voiceStateUpdate: true,
 				},
+				modRoles: {},
 			};
 			fs.writeFile(
 				"./config/data.json",
