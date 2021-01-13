@@ -45,7 +45,7 @@ module.exports = {
 					sendError(message, `\`${role.name}\` is already a modrole`);
 					return;
 				}
-				jsonData[guildID].modRoles[role.name] = args[1];
+				jsonData[guildID].modRoles[role.name] = role.id;
 				fs.writeFile(
 					"./config/data.json",
 					JSON.stringify(jsonData, null, "\t"),
