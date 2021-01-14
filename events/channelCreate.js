@@ -10,18 +10,20 @@ module.exports = {
 			const executor = await getLog("CHANNEL_CREATE", channel);
 			const embed = {
 				title: "Channel created",
-				description: `${
-					channel.type.charAt(0).toUpperCase() + channel.type.slice(1)
-				} channel <#${
-					channel.id
-				}> created by <@${executor}> (${executor}) \n Name: \`#${
-					channel.name
-				}\` (${channel.id})`,
+				description: `Name: \n <#${channel.id}> \`${channel.name}\`
+				ID: \n ${channel.id}`,
 				color: config.createColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
 					url: config.createSprite,
 				},
+				fields: [
+					{
+						name: "Channel created by",
+						value: `<@${executor}> \n (${executor})`,
+						inline: true,
+					},
+				],
 			};
 			sendEmbed(channel, client, embed);
 		}
