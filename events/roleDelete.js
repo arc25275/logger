@@ -1,7 +1,3 @@
-/*****************************************
-NOT DONE! NEEDS ACTUAL LOGGING IMPLEMENTED
-*****************************************/
-
 const sendEmbed = require("../utils/sendEmbed.js");
 const config = require("../config/config.json");
 const getLog = require("../utils/getAuditLog.js");
@@ -27,18 +23,25 @@ module.exports = {
 				);
 			});
 		}
-		/*if (serverData[OBJECT.guild.id].events["EVENT NAME"] == true) {
-			const executor = await getLog("TYPE OF EVENT", OBJECT);
+		if (serverData[role.guild.id].events["roleDelete"] == true) {
+			const executor = await getLog("ROLE_DELETE", role);
 			const embed = {
-				title: "EMBED TITLE",
-				description: `EMBED DESCRIPTION`,
-				color: COLOR,
+				title: "Role deleted",
+				description: `Name: \n \`${role.name}\` \n ID: ${role.id}`,
+				color: config.deleteColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
-					url: config.SPRITETYPE,
+					url: config.deleteSprite,
 				},
+				fields: [
+					{
+						name: "Role deleted by",
+						value: `<@${executor}> \n (${executor})`,
+						inline: true,
+					},
+				],
 			};
-			sendEmbed(OBJECT, client, embed);
-		}*/
+			sendEmbed(role, client, embed);
+		}
 	},
 };
