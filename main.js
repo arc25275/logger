@@ -59,7 +59,7 @@ fs.readdir("./events/", (err, files) => {
 				eventFunction.run.bind(null, client)
 			);
 		} catch (error) {
-			console.error(error.stack);
+			console.log(error);
 		}
 	});
 });
