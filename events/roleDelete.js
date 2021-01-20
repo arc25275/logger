@@ -27,7 +27,7 @@ module.exports = {
 			const executor = await getLog("ROLE_DELETE", role);
 			const embed = {
 				title: "Role deleted",
-				description: `Name: \n \`${role.name}\` \n ID: ${role.id}`,
+				description: `Name: \`${role.name}\` \n ID: ${role.id}`,
 				color: config.deleteColor,
 				timestamp: `${new Date().toLocaleString()}`,
 				thumbnail: {
