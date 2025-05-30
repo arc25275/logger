@@ -2,36 +2,14 @@ const fs = require("fs");
 const config = require("../config/config.json");
 const sendError = require("../utils/sendError.js");
 const sendSuccess = require("../utils/sendSuccess.js");
+const eventList = config.events
 
 module.exports = {
 	name: "config",
 	description: "Enable or disable events",
 	async execute(message, args) {
 		guildID = message.guild.id;
-		const eventArray = [
-			"channelDelete",
-			"channelUpdate",
-			"emojiCreate",
-			"emojiDelete",
-			"emojiUpdate",
-			"guildBanAdd",
-			"guildBanRemove",
-			"guildMemberAdd",
-			"guildMemberRemove",
-			"guildMemberSpeaking",
-			"guildMemberUpdate",
-			"guildUpdate",
-			"messageDelete",
-			"messageDeleteBulk",
-			"messageReactionRemoveAll",
-			"messageUpdate",
-			"roleCreate",
-			"roleDelete",
-			"roleUpdate",
-			"userUpdate",
-			"voiceStateUpdate",
-		];
-		if (eventArray.includes(args[0]) == false) {
+		if (eventList.includes(args[0]) == false) {
 			sendError(
 				message,
 				`Invalid event (All events: \`${config.prefix}events\`)`

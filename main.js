@@ -60,7 +60,7 @@ client.on("message", (message) => {
 //Event Handler
 fs.readdir("./events/", (err, files) => {
 	if (err) return console.error(err);
-
+	eventList = [];
 	files.forEach((file) => {
 		const eventFunction = require(`./events/${file}`);
 		if (eventFunction.disabled) return;
@@ -77,5 +77,26 @@ fs.readdir("./events/", (err, files) => {
 		} catch (error) {
 			console.log(error);
 		}
+
+		eventList.push(event);
 	});
+	if (Object.keys(config.events).length === eventList.length){
+		console.log("Event List is probably up to date.");
+		return;
+	}
+	fs.writeFile(
+		"./config/config.json",
+		JSON.stringify(
+			{
+				...config,
+				events: eventList,
+			},
+			null,
+			"\t"
+		),
+		(err) => {
+			if (err) throw err;
+			console.log("The file has been saved! (Event List Updated)");
+		}
+	);
 });
