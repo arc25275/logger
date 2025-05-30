@@ -7,7 +7,6 @@ const fs = require("fs");
 module.exports = {
 	once: false,
 	async run(client, oldRole, newRole) {
-		console.log(oldRole);
 		if (
 			oldRole.rawPosition !== newRole.rawPosition &&
 			oldRole.name == newRole.name &&

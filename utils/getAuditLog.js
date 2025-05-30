@@ -4,6 +4,5 @@ module.exports = async function getLog(logType, object) {
 		type: logType,
 	});
 	const log = fetchedLogs.entries.first();
-	const executor = log;
-	return executor.executor.id;
+	return log.executor.id;
 };

@@ -9,7 +9,7 @@ module.exports = {
 				serverData[message.guild.id].events,
 				null,
 				2
-			)}\n\`\`\` \n [List of all events and descriptions](https://gist.github.com/koad/316b265a91d933fd1b62dddfcc3ff584)`,
+			)}\n\`\`\` \n [List of all events and descriptions](https://discord.com/developers/docs/events/gateway-events#receive-events)`,
 		};
 		message.channel.send({ embed });
 	},

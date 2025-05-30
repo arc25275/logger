@@ -1,11 +1,28 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const TOKEN = require("./config/auth.json");
-const serverData = require("./config/data.json");
+let serverData = {};
 const config = require("./config/config.json");
 const prefix = config.prefix;
 
-const client = new Discord.Client();
+try {
+	serverData = require("./config/data.json");
+} catch (error) {
+	console.error("Error loading data.json:", error);
+	console.log("Creating a new data.json file with default structure.");
+	serverData = {};
+	fs.writeFileSync("./config/data.json", JSON.stringify(serverData, null, "\t"));
+	console.log("data.json created successfully.");
+	serverData = require("./config/data.json");
+}
+
+const client = new Discord.Client({
+	intents: [
+		Discord.Intents.FLAGS.GUILDS,
+		Discord.Intents.FLAGS.GUILD_MESSAGES,
+		Discord.Intents.FLAGS.GUILD_MEMBERS,
+	],
+});
 client.events = new Discord.Collection();
 client.commands = new Discord.Collection();
 
@@ -28,11 +45,9 @@ client.on("message", (message) => {
 	const command = args.shift().toLowerCase();
 	if (!client.commands.has(command)) return;
 	if (
-		message.member.roles.cache.some((r) =>
+		message.member.hasPermission("ADMINISTRATOR") || message.member.roles.cache.some((r) =>
 			JSON.stringify(serverData[message.guild.id].modRoles).includes(r.name)
-		) ||
-		message.member.hasPermission("ADMINISTRATOR") ||
-		message.member.id == "369661965376946176"
+		)
 	) {
 		try {
 			client.commands.get(command).execute(message, args);
@@ -41,6 +56,7 @@ client.on("message", (message) => {
 		}
 	}
 });
+
 //Event Handler
 fs.readdir("./events/", (err, files) => {
 	if (err) return console.error(err);

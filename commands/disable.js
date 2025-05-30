@@ -1,6 +1,7 @@
 const fs = require("fs");
 const sendError = require("../utils/sendError.js");
 const sendSuccess = require("../utils/sendSuccess.js");
+const prefix = require("../config/config.json").prefix;
 
 module.exports = {
 	name: "disable",
@@ -12,7 +13,7 @@ module.exports = {
 			const jsonData = JSON.parse(data.toString());
 
 			if (jsonData[guildID].logChannel == "placeholder") {
-				sendError(message, "Logging already disabled");
+				sendError(message, "Logging already disabled. Use `" + prefix + "setlog` to enable logging.");
 				return;
 			} else {
 				jsonData[guildID].logChannel = "placeholder";
@@ -24,7 +25,7 @@ module.exports = {
 						console.log("The file has been saved! (Logging Disabled)");
 					}
 				);
-				sendError(message, "Logging disabled");
+				sendError(message, "Logging disabled. Use `" + prefix + "setlog` to enable logging.");
 			}
 		});
 	},

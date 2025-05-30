@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="128" src="https://media.discordapp.net/attachments/737388909197262948/796812054253797376/logger.png" />
+<img width="128" src="logger.png" alt="Pixel art of a log"/>
 
 # Logger
 
@@ -10,14 +10,22 @@ Logger is a WIP discord bot to log all actions and events that can happen in a d
 
 This is my first bot, and I know this isn't an original idea, but I still want practice.
 
-## Planned Features:
+## Setup
+
+First, you will need a Bot created in the [Discord Developer Portal](https://discord.com/developers/docs/quick-start/getting-started). Make sure it has the `Message Content Intent`, which is under the `Bot` tab. It also needs the `bot` scope under the `Install` tab.
+
+Clone the repository, and run `npm install` to install the dependencies. Create `auth.json`, `config.json` and `data.json` in `./config` by using the templates provided in that directory.
+
+Run the bot using `npm run dev`, and once it is running, you can add your bot to the server and default data should be created and placed into `data.json`.
+
+## Planned Features
 
 - Adding all events
-- Hopefully making code less shitty
+- Refactor / Upgrade to slash commands.
 
-## Current Features:
+## Current Features
 
-### Commands:
+### Commands
 
 #### $setlog
 
@@ -51,7 +59,7 @@ Adds and removes roles that can use commands
 
 ### Events:
 
-#### Most useful events found here: https://gist.github.com/koad/316b265a91d933fd1b62dddfcc3ff584
+#### Most useful events found in [Discord API Documentation](https://discord.com/developers/docs/events/gateway-events#receive-events)
 
 Most events pull from the audit logs to check who did an action, with the exception of deleted messages.
 
