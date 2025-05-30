@@ -1,9 +1,9 @@
 {
     "prefix": "$",
     "createColor": "49d4c6",
-    "createSprite": "../res/notepad.png",
+    "createSprite": "https://github.com/arc25275/logger/blob/master/res/notepad.png?raw=true",
     "deleteColor": "E71D36",
-    "deleteSprite": "../res/eraser.png",
+    "deleteSprite": "https://github.com/arc25275/logger/blob/master/res/eraser.png?raw=true",
     "editColor": "FF9F1C",
-    "editSprite": "../res/pencileraser.png"
+    "editSprite": "https://github.com/arc25275/logger/blob/master/res/pencileraser.png?raw=true"
 }
