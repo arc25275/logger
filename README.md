@@ -21,7 +21,19 @@ Run the bot using `npm run dev`, and once it is running, you can add your bot to
 ## Planned Features
 
 - Adding all events
+    - Thread Create / Update / Delete
+    - Guild Ban Add / Remove
+    - Guild Emojis Update
+    - Guild Stickers Update
+    - Guild Member Add / Remove / Update
+    - Guild Integration Create / Update / Delete
+    - Interaction Create
+    - Invite Create / Delete
+    - Webhooks Update
+    - Message Reaction Add / Remove / Remove All / Remove Emoji
 - Refactor / Upgrade to slash commands.
+- Separate channel per event
+- Util function for embed creation
 
 ## Current Features
 
