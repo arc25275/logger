@@ -1,3 +1,9 @@
 {
-    "prefix": "$"
+    "prefix": "$",
+    "createColor": "49d4c6",
+    "createSprite": "../res/notepad.png",
+    "deleteColor": "E71D36",
+    "deleteSprite": "../res/eraser.png",
+    "editColor": "FF9F1C",
+    "editSprite": "../res/pencileraser.png"
 }

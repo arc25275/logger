@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="128" src="logger.png" alt="Pixel art of a log"/>
+<img width="128" src="res/logger.png" alt="Pixel art of a log"/>
 
 # Logger
 

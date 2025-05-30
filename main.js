@@ -62,6 +62,7 @@ fs.readdir("./events/", (err, files) => {
 	if (err) return console.error(err);
 	eventList = [];
 	files.forEach((file) => {
+		if (file.startsWith("_")) return;
 		const eventFunction = require(`./events/${file}`);
 		if (eventFunction.disabled) return;
 
