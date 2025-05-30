@@ -6,8 +6,8 @@ const serverData = require("../config/data.json");
 module.exports = {
 	once: false,
 	async run(client, channel) {
-		if (serverData[channel.guild.id].events[EVENT NAME] == true) {
-			const executor = await getLog("DISCORD EVENT NAME", OBJECT);
+		if (serverData[channel.guild.id].events["EVENT NAME"] == true) {
+			const executor = await getLog("DISCORD_EVENT_NAME", OBJECT);
 			const embed = {
 				title: "",
 				description: ``,
@@ -17,7 +17,11 @@ module.exports = {
 					url: config. SPRITE,
 				},
 				fields: [
-					
+					{
+						name: "EXECUTED by",
+						value: `<@${executor}> \n (${executor})`,
+						inline: true,
+					},
 				],
 			};
 			sendEmbed(channel, client, embed);
